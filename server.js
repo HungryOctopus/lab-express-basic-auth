@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const app = require('./app');
 const mongoose = require('mongoose');
 
@@ -16,7 +15,7 @@ mongoose
     app.set('port', PORT);
     const server = app.listen(PORT);
 
-    server.on('error', error => {
+    server.on('error', (error) => {
       const { syscall, port, code } = error;
       if (syscall === 'listen' && code === 'EADDRINUSE') {
         console.error(`Port ${port} is already in use`);
@@ -31,7 +30,7 @@ mongoose
       console.log(`Node server listening on ${PORT}`);
     });
   })
-  .catch(error => {
+  .catch((error) => {
     console.error(`There was an error connecting the database to URI "${URI}"`);
     console.log(error);
   });

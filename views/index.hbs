@@ -1,1 +1,7 @@
 <h1>Hello World</h1>
+
+{{#if user}}
+  <h1>Hello {{user.username}}</h1>
+{{else}}
+  <h1>Hello stranger</h1>
+{{/if}}
